@@ -1,11 +1,10 @@
-import test from 'ava';
-import phc from '@phc/format';
-
-import m from '..';
+const phc = require('@phc/format');
+const test = require('ava');
+const m = require('..');
 
 // See https://bitbucket.org/vadim/bcrypt.net/src/464c41416dc9/BCrypt.Net.Test/TestBCrypt.cs
 
-test('should pass the test vector 1', async t => {
+test('should pass the test vector 1', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -26,7 +25,7 @@ test('should pass the test vector 1', async t => {
   t.true(await m.verify(phcstr, ''));
 });
 
-test('should pass the test vector 2', async t => {
+test('should pass the test vector 2', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -47,7 +46,7 @@ test('should pass the test vector 2', async t => {
   t.true(await m.verify(phcstr, ''));
 });
 
-test('should pass the test vector 3', async t => {
+test('should pass the test vector 3', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -68,7 +67,7 @@ test('should pass the test vector 3', async t => {
   t.true(await m.verify(phcstr, ''));
 });
 
-test('should pass the test vector 4', async t => {
+test('should pass the test vector 4', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -89,7 +88,7 @@ test('should pass the test vector 4', async t => {
   t.true(await m.verify(phcstr, 'a'));
 });
 
-test('should pass the test vector 5', async t => {
+test('should pass the test vector 5', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -110,7 +109,7 @@ test('should pass the test vector 5', async t => {
   t.true(await m.verify(phcstr, 'abc'));
 });
 
-test('should pass the test vector 6', async t => {
+test('should pass the test vector 6', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -131,7 +130,7 @@ test('should pass the test vector 6', async t => {
   t.true(await m.verify(phcstr, 'abcdefghijklmnopqrstuvwxyz'));
 });
 
-test('should pass the test vector 7', async t => {
+test('should pass the test vector 7', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -154,7 +153,7 @@ test('should pass the test vector 7', async t => {
 
 // See http://cvsweb.openwall.com/cgi/cvsweb.cgi/Owl/packages/john/john/src/BF_fmt.c
 
-test('should pass the test vector 8', async t => {
+test('should pass the test vector 8', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),
@@ -182,7 +181,7 @@ test('should pass the test vector 8', async t => {
 
 // See https://stackoverflow.com/a/12761326/3921589
 
-test('should pass the test vector 9', async t => {
+test('should pass the test vector 9', async (t) => {
   const phcstr = phc.serialize({
     id: 'bcrypt',
     version: 'a'.charCodeAt(0),

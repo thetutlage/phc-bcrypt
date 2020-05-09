@@ -1,4 +1,4 @@
-/* eslint-disable capitalized-comments,complexity,prefer-destructuring */
+/* eslint-disable capitalized-comments,prefer-destructuring,promise/prefer-await-to-then */
 'use strict';
 
 const bcrypt = require('bcrypt');
@@ -42,7 +42,7 @@ const versions = [
  * @return {Promise.<string>} The generated secure hash string in the PHC
  * format.
  */
-function hash(password, options) {
+async function hash(password, options) {
   options = options || {};
   const rounds = options.rounds || defaults.rounds;
   const saltSize = options.saltSize || defaults.saltSize;
@@ -54,6 +54,7 @@ function hash(password, options) {
       new TypeError("The 'rounds' option must be an integer")
     );
   }
+
   if (rounds < 4 || rounds > 31) {
     return Promise.reject(
       new TypeError(
@@ -71,25 +72,26 @@ function hash(password, options) {
     );
   }
 
-  return gensalt(saltSize).then(salt => {
-    const bb64salt = bb64.encode(salt);
-    const padrounds = rounds > 9 ? Number(rounds) : '0' + rounds;
-    const decver = String.fromCharCode(version);
-    const parstr = `$2${decver}$${padrounds}$${bb64salt}`;
-    return bcrypt.hash(password, parstr).then(enchash => {
-      const hash = bb64.decode(enchash.split(parstr)[1]);
-      const phcstr = phc.serialize({
-        id: 'bcrypt',
-        version,
-        params: {
-          r: rounds
-        },
-        salt,
-        hash
-      });
-      return phcstr;
-    });
+  const salt = await gensalt(saltSize);
+  const bb64salt = bb64.encode(salt);
+  const padrounds = rounds > 9 ? Number(rounds) : '0' + rounds;
+  const decver = String.fromCharCode(version);
+  const parstr = `$2${decver}$${padrounds}$${bb64salt}`;
+
+  const enchash = await bcrypt.hash(password, parstr);
+  const hash = bb64.decode(enchash.split(parstr)[1]);
+
+  const phcstr = phc.serialize({
+    id: 'bcrypt',
+    version,
+    params: {
+      r: rounds
+    },
+    salt,
+    hash
   });
+
+  return phcstr;
 }
 
 /**
@@ -105,8 +107,8 @@ function verify(phcstr, password) {
   let phcobj;
   try {
     phcobj = phc.deserialize(phcstr);
-  } catch (err) {
-    return Promise.reject(err);
+  } catch (error) {
+    return Promise.reject(error);
   }
 
   // Identifier Validation
@@ -125,11 +127,13 @@ function verify(phcstr, password) {
   if (typeof phcobj.version === 'undefined') {
     phcobj.version = versions[0]; // Old bcrypt strings without the version.
   }
-  if (versions.indexOf(phcobj.version) === -1) {
+
+  if (!versions.includes(phcobj.version)) {
     return Promise.reject(
       new TypeError(`Unsupported ${phcobj.version} version`)
     );
   }
+
   const version = phcobj.version;
 
   // Rounds Validation
@@ -139,23 +143,27 @@ function verify(phcstr, password) {
   ) {
     return Promise.reject(new TypeError("The 'r' param must be an integer"));
   }
+
   if (phcobj.params.r < 4 || phcobj.params.r > 31) {
     return Promise.reject(
       new TypeError(`The 'r' param must be in the range (4 <= r <= 31)`)
     );
   }
+
   const rounds = phcobj.params.r;
 
   // Salt Validation
   if (typeof phcobj.salt === 'undefined') {
     return Promise.reject(new TypeError('No salt found in the given string'));
   }
+
   const salt = phcobj.salt;
 
   // Hash Validation
   if (typeof phcobj.hash === 'undefined') {
     return Promise.reject(new TypeError('No hash found in the given string'));
   }
+
   const hash = phcobj.hash;
   // const keylen = phcobj.hash.byteLength;
 
@@ -163,7 +171,8 @@ function verify(phcstr, password) {
   const padrounds = rounds > 9 ? Number(rounds) : '0' + rounds;
   const decver = String.fromCharCode(version);
   const parstr = `$2${decver}$${padrounds}$${bb64salt}`;
-  return bcrypt.hash(password, parstr).then(enchash => {
+
+  return bcrypt.hash(password, parstr).then((enchash) => {
     const newhash = bb64.decode(enchash.split(parstr)[1]);
     const match = tsse(hash, newhash);
     return match;

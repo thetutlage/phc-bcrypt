@@ -1,4 +1,4 @@
-/* eslint-disable capitalized-comments,unicorn/number-literal-case,unicorn/no-abusive-eslint-disable */
+/* eslint-disable capitalized-comments */
 'use strict';
 
 /**
@@ -26,31 +26,36 @@ const BASE64_INDEX = [
  * @returns {string} The buffer encoded as a string.
  */
 function encode(buff) {
-  const len = buff.byteLength;
+  const buffLength = buff.byteLength;
   let off = 0;
   const stra = [];
 
-  while (off < len) {
+  while (off < buffLength) {
     let c1 = buff[off++] & 0xff;
     stra.push(BASE64_CODE[(c1 >> 2) & 0x3f]);
     c1 = (c1 & 0x03) << 4;
-    if (off >= len) {
+
+    if (off >= buffLength) {
       stra.push(BASE64_CODE[c1 & 0x3f]);
       break;
     }
+
     let c2 = buff[off++] & 0xff;
     c1 |= (c2 >> 4) & 0x0f;
     stra.push(BASE64_CODE[c1 & 0x3f]);
     c1 = (c2 & 0x0f) << 2;
-    if (off >= len) {
+
+    if (off >= buffLength) {
       stra.push(BASE64_CODE[c1 & 0x3f]);
       break;
     }
+
     c2 = buff[off++] & 0xff;
     c1 |= (c2 >> 6) & 0x03;
     stra.push(BASE64_CODE[c1 & 0x3f]);
     stra.push(BASE64_CODE[c2 & 0x3f]);
   }
+
   return stra.join('');
 }
 
@@ -60,37 +65,38 @@ function encode(buff) {
  * @returns {Buffer} The string decoded as a Buffer.
  * @inner
  */
-function decode(str) {
+function decode(value) {
   let off = 0;
   let olen = 0;
-  const slen = str.length;
+  const slen = value.length;
   const stra = [];
-  const len = str.length;
+  const valueLength = value.length;
 
-  while (off < slen - 1 && olen < len) {
-    let code = str.charCodeAt(off++);
+  while (off < slen - 1 && olen < valueLength) {
+    let code = value.charCodeAt(off++);
     const c1 = code < BASE64_INDEX.length ? BASE64_INDEX[code] : -1;
-    code = str.charCodeAt(off++);
+    code = value.charCodeAt(off++);
     const c2 = code < BASE64_INDEX.length ? BASE64_INDEX[code] : -1;
     if (c1 === -1 || c2 === -1) break;
     let o = (c1 << 2) >>> 0;
     o |= (c2 & 0x30) >> 4;
     stra.push(String.fromCharCode(o));
-    if (++olen >= len || off >= slen) break;
-    code = str.charCodeAt(off++);
+    if (++olen >= valueLength || off >= slen) break;
+    code = value.charCodeAt(off++);
     const c3 = code < BASE64_INDEX.length ? BASE64_INDEX[code] : -1;
     if (c3 === -1) break;
     o = ((c2 & 0x0f) << 4) >>> 0;
     o |= (c3 & 0x3c) >> 2;
     stra.push(String.fromCharCode(o));
-    if (++olen >= len || off >= slen) break;
-    code = str.charCodeAt(off++);
+    if (++olen >= valueLength || off >= slen) break;
+    code = value.charCodeAt(off++);
     const c4 = code < BASE64_INDEX.length ? BASE64_INDEX[code] : -1;
     o = ((c3 & 0x03) << 6) >>> 0;
     o |= c4;
     stra.push(String.fromCharCode(o));
     ++olen;
   }
+
   const buffa = [];
   for (off = 0; off < olen; off++) buffa.push(stra[off].charCodeAt(0));
   return Buffer.from(buffa);

@@ -48,11 +48,11 @@
     "bcrypt-b64.js"
   ],
   "engines": {
-    "node": ">=4"
+    "node": ">=12"
   },
   "scripts": {
     "bench": "node bench.js",
-    "test": "xo &&nyc ava",
+    "test": "xo && nyc ava",
     "release": "np",
     "update": "npm-check -u"
   },
@@ -62,12 +62,12 @@
   "dependencies": {
     "@kdf/salt": "^1.0.0",
     "@phc/format": "^0.5.0",
-    "bcrypt": "^3.0.0",
+    "bcrypt": "^4.0.1",
     "tsse": "^1.1.5"
   },
   "devDependencies": {
     "ava": "*",
-    "execa": "^1.0.0",
+    "execa": "^4.0.1",
     "np": "*",
     "npm-check": "*",
     "nyc": "*",

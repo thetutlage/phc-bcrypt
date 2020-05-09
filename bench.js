@@ -18,43 +18,42 @@ async function bench(hpass, vpass, options) {
 Promise.resolve()
   // Default configs
   .then(() => bench('r9(yaV@L', 'r9(yaV@L'))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
 
   // Custom Rounds
   .then(() => bench('r9(yaV@L', 'r9(yaV@L', {rounds: 4}))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
   .then(() => bench('r9(yaV@L', 'r9(yaV@L', {rounds: 8}))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
   .then(() => bench('r9(yaV@L', 'r9(yaV@L', {rounds: 10}))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
   .then(() => bench('r9(yaV@L', 'r9(yaV@L', {rounds: 12}))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
   .then(() => bench('r9(yaV@L', 'r9(yaV@L', {rounds: 14}))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
   .then(() => bench('r9(yaV@L', 'r9(yaV@L', {rounds: 16}))
-  .then(results => {
+  .then((results) => {
     console.log('► CMD:', results.cmd);
     console.log(results.stdout);
   })
-
-  .catch(err => {
-    console.error(err);
+  .catch((error) => {
+    console.error(error);
   });
