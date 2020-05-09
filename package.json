@@ -1,6 +1,6 @@
 {
-  "name": "@phc/bcrypt",
-  "version": "1.0.2",
+  "name": "phc-bcrypt",
+  "version": "1.0.0",
   "description": "Node.JS bcrypt password hashing algorithm following the PHC string format",
   "license": "MIT",
   "homepage": "https://github.com/simonepri/phc-bcrypt#readme",
@@ -9,10 +9,6 @@
     "url": "https://github.com/simonepri/phc-bcrypt/issues",
     "email": "simonepri@outlook.com"
   },
-  "author": "Simone Primarosa <simonepri@outlook.com> (https://simoneprimarosa.com)",
-  "contributors": [
-    "Simone Primarosa <simonepri@outlook.com> (https://simoneprimarosa.com)"
-  ],
   "keywords": [
     "brute",
     "brute force",
