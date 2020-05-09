@@ -1,6 +1,9 @@
 <h1 align="center">
   <b>phc-bcrypt</b>
 </h1>
+
+> Fork of [npm.im/@phc/bcrypt](@phc/bcrypt) with updated dependencies
+
 <p align="center">
   <!-- CI - TravisCI -->
   <a href="https://travis-ci.com/simonepri/phc-bcrypt">
