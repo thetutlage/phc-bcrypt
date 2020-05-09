@@ -2,7 +2,7 @@
   <b>phc-bcrypt</b>
 </h1>
 
-> Fork of [npm.im/@phc/bcrypt](@phc/bcrypt) with updated dependencies
+> Fork of [@phc/bcrypt](https://npm.im/@phc/bcrypt) with updated dependencies
 
 <p align="center">
   <!-- CI - TravisCI -->
