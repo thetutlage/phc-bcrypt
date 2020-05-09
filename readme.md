@@ -115,7 +115,7 @@ const ids = bcrypt.identifiers();
 ## Benchmarks
 
 Below you can find usage statistics of this hashing algorithm with different
-options.  
+options.
 This should help you understand how the different options affects the running
 time and memory usage of the algorithm.
 
@@ -131,9 +131,9 @@ Mac OS X  10.12.6  darwin    x64
 
 CPU     Brand           Clock     Cores
 ------  --------------  --------  -----
-Intel®  Core™ i5-6360U  2.00 GHz  4    
+Intel®  Core™ i5-6360U  2.00 GHz  4
 
-Memory                  Type    Size         Clock   
+Memory                  Type    Size         Clock
 ----------------------  ------  -----------  --------
 Micron Technology Inc.  LPDDR3  4294.967 MB  1867 MHz
 Micron Technology Inc.  LPDDR3  4294.967 MB  1867 MHz
@@ -147,13 +147,13 @@ Micron Technology Inc.  LPDDR3  4294.967 MB  1867 MHz
 ```
 CPU Usage (avarage ± σ)  CPU Usage Range (min … max)
 -----------------------  ---------------------------
-205.71 % ± 149.94 %      0.00 % … 480.00 %          
+205.71 % ± 149.94 %      0.00 % … 480.00 %
 
 RAM Usage (avarage ± σ)  RAM Usage Range (min … max)
 -----------------------  ---------------------------
-26.638 MB ± 2.191 MB     21.438 MB … 27.787 MB      
+26.638 MB ± 2.191 MB     21.438 MB … 27.787 MB
 
-Execution time  Sampling time  Samples  
+Execution time  Sampling time  Samples
 --------------  -------------  ---------
 0.161 s         0.233 s        7 samples
 
@@ -176,13 +176,13 @@ Instant  CPU Usage  RAM Usage  PIDS
 ```
 CPU Usage (avarage ± σ)  CPU Usage Range (min … max)
 -----------------------  ---------------------------
-190.00 % ± 181.38 %      0.00 % … 480.00 %          
+190.00 % ± 181.38 %      0.00 % … 480.00 %
 
 RAM Usage (avarage ± σ)  RAM Usage Range (min … max)
 -----------------------  ---------------------------
-26.470 MB ± 2.443 MB     21.635 MB … 28.176 MB      
+26.470 MB ± 2.443 MB     21.635 MB … 28.176 MB
 
-Execution time  Sampling time  Samples  
+Execution time  Sampling time  Samples
 --------------  -------------  ---------
 0.158 s         0.323 s        6 samples
 
@@ -204,13 +204,13 @@ Instant  CPU Usage  RAM Usage  PIDS
 ```
 CPU Usage (avarage ± σ)  CPU Usage Range (min … max)
 -----------------------  ---------------------------
-93.75 % ± 114.67 %       0.00 % … 300.00 %          
+93.75 % ± 114.67 %       0.00 % … 300.00 %
 
 RAM Usage (avarage ± σ)  RAM Usage Range (min … max)
 -----------------------  ---------------------------
-26.556 MB ± 2.101 MB     21.651 MB … 27.976 MB      
+26.556 MB ± 2.101 MB     21.651 MB … 27.976 MB
 
-Execution time  Sampling time  Samples  
+Execution time  Sampling time  Samples
 --------------  -------------  ---------
 0.293 s         0.494 s        8 samples
 
@@ -234,13 +234,13 @@ Instant  CPU Usage  RAM Usage  PIDS
 ```
 CPU Usage (avarage ± σ)  CPU Usage Range (min … max)
 -----------------------  ---------------------------
-155.00 % ± 101.61 %      0.00 % … 480.00 %          
+155.00 % ± 101.61 %      0.00 % … 480.00 %
 
 RAM Usage (avarage ± σ)  RAM Usage Range (min … max)
 -----------------------  ---------------------------
-27.131 MB ± 1.720 MB     21.631 MB … 27.988 MB      
+27.131 MB ± 1.720 MB     21.631 MB … 27.988 MB
 
-Execution time  Sampling time  Samples   
+Execution time  Sampling time  Samples
 --------------  -------------  ----------
 0.486 s         0.575 s        18 samples
 
@@ -274,13 +274,13 @@ Instant  CPU Usage  RAM Usage  PIDS
 ```
 CPU Usage (avarage ± σ)  CPU Usage Range (min … max)
 -----------------------  ---------------------------
-112.91 % ± 75.45 %       0.00 % … 420.00 %          
+112.91 % ± 75.45 %       0.00 % … 420.00 %
 
 RAM Usage (avarage ± σ)  RAM Usage Range (min … max)
 -----------------------  ---------------------------
-27.983 MB ± 0.905 MB     21.705 MB … 28.176 MB      
+27.983 MB ± 0.905 MB     21.705 MB … 28.176 MB
 
-Execution time  Sampling time  Samples   
+Execution time  Sampling time  Samples
 --------------  -------------  ----------
 1.608 s         1.68 s         55 samples
 
@@ -351,13 +351,13 @@ Instant  CPU Usage  RAM Usage  PIDS
 ```
 CPU Usage (avarage ± σ)  CPU Usage Range (min … max)
 -----------------------  ---------------------------
-40.42 % ± 47.22 %        0.00 % … 540.00 %          
+40.42 % ± 47.22 %        0.00 % … 540.00 %
 
 RAM Usage (avarage ± σ)  RAM Usage Range (min … max)
 -----------------------  ---------------------------
-27.793 MB ± 0.487 MB     21.656 MB … 27.881 MB      
+27.793 MB ± 0.487 MB     21.656 MB … 27.881 MB
 
-Execution time  Sampling time  Samples    
+Execution time  Sampling time  Samples
 --------------  -------------  -----------
 7.237 s         7.322 s        236 samples
 
@@ -606,7 +606,7 @@ Instant  CPU Usage  RAM Usage  PIDS
 ## Test vectors
 
 The [bcrypt paper][paper] does not lists test vectors to test implementation but
-a set of well known test vectors has been used.  
+a set of well known test vectors has been used.
 This package implements them [here][tvec].
 
 ## API
@@ -633,10 +633,10 @@ matches the hash generated for the password provided.</p>
 Computes the hash string of the given password in the PHC format using bcrypt
 package.
 
-**Kind**: global function  
+**Kind**: global function
 **Returns**: <code>Promise.&lt;string&gt;</code> - The generated secure hash string in the PHC
-format.  
-**Access**: public  
+format.
+**Access**: public
 
 | Param | Type | Default | Description |
 | --- | --- | --- | --- |
@@ -650,10 +650,10 @@ format.
 Determines whether or not the hash stored inside the PHC formatted string
 matches the hash generated for the password provided.
 
-**Kind**: global function  
+**Kind**: global function
 **Returns**: <code>Promise.&lt;boolean&gt;</code> - A boolean that is true if the hash computed
-for the password matches.  
-**Access**: public  
+for the password matches.
+**Access**: public
 
 | Param | Type | Description |
 | --- | --- | --- |
@@ -665,9 +665,9 @@ for the password matches.
 ### identifiers() ⇒ <code>Array.&lt;string&gt;</code>
 Gets the list of all identifiers supported by this hashing function.
 
-**Kind**: global function  
-**Returns**: <code>Array.&lt;string&gt;</code> - A list of identifiers supported by this hashing function.  
-**Access**: public  
+**Kind**: global function
+**Returns**: <code>Array.&lt;string&gt;</code> - A list of identifiers supported by this hashing function.
+**Access**: public
 
 ## Related
 - [@phc/argon2][argon2] -
@@ -679,7 +679,7 @@ Gets the list of all identifiers supported by this hashing function.
 
 ## Contributing
 
-Contributions are REALLY welcome and if you find a security flaw in this code, PLEASE [report it][new issue].  
+Contributions are REALLY welcome and if you find a security flaw in this code, PLEASE [report it][new issue].
 
 ## Authors
 
