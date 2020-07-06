@@ -56,19 +56,19 @@
     "access": "public"
   },
   "dependencies": {
-    "@kdf/salt": "^1.0.0",
-    "@phc/format": "^0.5.0",
-    "bcrypt": "^4.0.1",
-    "tsse": "^1.1.5"
+    "@kdf/salt": "^2.0.1",
+    "@phc/format": "^1.0.0",
+    "bcrypt": "^5.0.0",
+    "tsse": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "*",
-    "execa": "^4.0.1",
-    "np": "*",
+    "ava": "^3.10.0",
+    "execa": "^4.0.2",
+    "np": "^6.3.0",
     "npm-check": "*",
-    "nyc": "*",
+    "nyc": "^15.1.0",
     "sympact": "0.0.7",
-    "xo": "*"
+    "xo": "^0.32.1"
   },
   "ava": {
     "verbose": true
