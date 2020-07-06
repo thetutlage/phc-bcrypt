@@ -3,11 +3,13 @@
   "version": "1.0.2",
   "description": "Node.JS bcrypt password hashing algorithm following the PHC string format",
   "license": "MIT",
-  "homepage": "https://github.com/simonepri/phc-bcrypt#readme",
-  "repository": "github:simonepri/phc-bcrypt",
+  "homepage": "https://github.com/thetutlage/phc-bcrypt#readme",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/thetutlage/phc-bcrypt.git"
+  },
   "bugs": {
-    "url": "https://github.com/simonepri/phc-bcrypt/issues",
-    "email": "simonepri@outlook.com"
+    "url": "https://github.com/thetutlage/phc-bcrypt/issues"
   },
   "keywords": [
     "brute",
@@ -82,5 +84,9 @@
   "xo": {
     "prettier": true,
     "space": true
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "author": "virk"
 }
