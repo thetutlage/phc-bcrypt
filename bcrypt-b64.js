@@ -52,8 +52,7 @@ function encode(buff) {
 
     c2 = buff[off++] & 0xff;
     c1 |= (c2 >> 6) & 0x03;
-    stra.push(BASE64_CODE[c1 & 0x3f]);
-    stra.push(BASE64_CODE[c2 & 0x3f]);
+    stra.push(BASE64_CODE[c1 & 0x3f], BASE64_CODE[c2 & 0x3f]);
   }
 
   return stra.join('');
