@@ -65,12 +65,12 @@
   },
   "devDependencies": {
     "ava": "^3.15.0",
-    "execa": "^5.0.1",
-    "np": "^7.5.0",
-    "npm-check": "*",
+    "execa": "^6.0.0",
+    "np": "^7.6.0",
+    "npm-check": "^5.9.2",
     "nyc": "^15.1.0",
-    "sympact": "0.0.7",
-    "xo": "^0.40.1"
+    "sympact": "^0.0.7",
+    "xo": "^0.47.0"
   },
   "ava": {
     "verbose": true
