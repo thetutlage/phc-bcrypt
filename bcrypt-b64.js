@@ -1,12 +1,8 @@
-/* eslint-disable capitalized-comments */
-'use strict';
-
 /**
- * bcrypt's own non-standard base64 dictionary.
+ * Bcrypt's own non-standard base64 dictionary.
  **/
-const BASE64_CODE = './ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split(
-  ''
-);
+const BASE64_CODE =
+  './ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789'.split('');
 
 /* eslint-disable prettier/prettier */
 const BASE64_INDEX = [

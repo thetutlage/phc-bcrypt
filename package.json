@@ -64,7 +64,7 @@
     "tsse": "^2.0.0"
   },
   "devDependencies": {
-    "ava": "^3.15.0",
+    "ava": "^4.0.1",
     "execa": "^5.0.1",
     "np": "^7.5.0",
     "npm-check": "*",
@@ -83,7 +83,11 @@
   },
   "xo": {
     "prettier": true,
-    "space": true
+    "space": true,
+    "rules": {
+      "unicorn/prefer-module": 0,
+      "import/extensions": 0
+    }
   },
   "directories": {
     "test": "test"
