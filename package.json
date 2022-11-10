@@ -60,7 +60,7 @@
   "dependencies": {
     "@kdf/salt": "^2.0.1",
     "@phc/format": "^1.0.0",
-    "bcrypt": "^5.0.1",
+    "bcrypt": "^5.1.0",
     "tsse": "^2.0.0"
   },
   "devDependencies": {
